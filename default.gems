@@ -1,0 +1,23 @@
+# default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+
+coffee-script -v2.2.0
+coffee-script-source -v1.3.3
+execjs -v1.4.0
+haml -v3.1.6
+i18n -v0.6.0
+json -v1.7.3
+libv8 -v3.3.10.4
+mail -v2.4.4
+mime -v0.1
+mime-types -v1.19
+multi_json -v1.3.6
+polyglot -v0.3.3
+rack -v1.4.1
+rack-protection -v1.2.0
+ruby-gmail -v0.2.1
+sass -v3.1.20
+shared-mime-info -v0.1
+sinatra -v1.3.2
+therubyracer -v0.10.1
+tilt -v1.3.3
+treetop -v1.4.10
