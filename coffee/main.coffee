@@ -6,6 +6,7 @@ $ ->
   footer = $("#footer")
   get_next_image = (current_image)=>
     callback = (response)=>
+      return null unless response.file
       current_image = $("#current_image")
       image = current_image.find("img")
       unless image[0]

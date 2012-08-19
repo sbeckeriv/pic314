@@ -12,6 +12,9 @@
       var callback;
       callback = function(response) {
         var image, img, pageHeight;
+        if (!response.file) {
+          return null;
+        }
         current_image = $("#current_image");
         image = current_image.find("img");
         if (!image[0]) {
