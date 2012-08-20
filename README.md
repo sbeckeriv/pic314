@@ -1,7 +1,7 @@
-photopi
+pic314
 =======
 
-PhotoPi is an opensourced Pi Powered picture frame. A replacement for my
+Pic314 (PicPi) is an opensourced Pi Powered picture frame. A replacement for my
 name brand POS. Currently downloads images from google accounts via
 IMAP.
 
