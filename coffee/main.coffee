@@ -1,5 +1,6 @@
 $ ->
   window.image_queue = []
+  window.settings ={interval_time:20000}
   image_box = $("#image_box")
   current_image = $("#current_image")
   top_nave = $("#top_nav")
@@ -19,11 +20,20 @@ $ ->
       window.image_queue.push(response.file)
       image.attr("src","file"+response.file)
     $.get "/next", {current_image}, callback, "json"
-  setInterval(()=>
-    img  = $("#current_image").find("img")
-    current_src = img.attr("src") if img
-    console.log current_src
-    get_next_image(current_src)
-  ,20000)
+
+  clean_queue ()->
+    while window.image_queue.length>50
+      window.image_queue.shift()
+  setInterval(clean_queue,window.settings.interval_time*6)
+
+  create_image_rotate = () =>
+    clearInterval(window.rotate_image_invterval) if window.rotate_image_invterval
+    window.rotate_image_invterval = setInterval(()=>
+      img  = $("#current_image").find("img")
+      current_src = img.attr("src") if img
+      console.log current_src
+      get_next_image(current_src)
+    ,window.settings.interval_time)
 
   get_next_image()
+  create_image_rotate()
