@@ -12,11 +12,8 @@ Hardware:
 * Power cord was laying around. ~10$
 * USB wifi 12$ http://www.amazon.com/EP-N8508-150Mbps-Wireless-N-Ultra-Adapter/dp/B004FWKEZ0/ref=pd_sxp_f_pt 
 * 7inch touch screen 165$ for 1 unit (or use an old screen) http://www.aliexpress.com/product-gs/618979284-7-Inch-Touchscreen-SKD-LCD-HDMI-Monitor-SKD7VAHT-9-wholesalers.html
-
-
-~232$
+* Prototype I: ~232$
 
 
 
 
-LIC: MIT will add other crap about it later. 
