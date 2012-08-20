@@ -19,3 +19,4 @@ doc/
 #mac
 *.DS_Store
 .DS_Store
+.sass-cache
