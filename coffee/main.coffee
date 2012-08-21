@@ -4,7 +4,7 @@ $ ->
   window.image_queue_current 
   window.pause = false
   window.menu_interval 
-  window.settings ={interval_time:10000}
+  window.settings ={interval_time:15000}
   image_box = $("#image_box")
   current_image = $("#current_image")
   top_nave = $("#top_nav")
