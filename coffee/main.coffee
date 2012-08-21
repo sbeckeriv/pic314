@@ -4,7 +4,7 @@ $ ->
   window.image_queue_current 
   window.pause = false
   window.menu_interval 
-  window.settings ={interval_time:2000}
+  window.settings ={interval_time:10000}
   image_box = $("#image_box")
   current_image = $("#current_image")
   top_nave = $("#top_nav")
@@ -30,9 +30,9 @@ $ ->
       img.css({'max-height':pageHeight+"px"})
       img.appendTo(current_image)
       image = current_image.find("img")
-    src = "file"+response.file
+    src = response.file
     window.image_queue.unshift(src) unless skip==true
-    image.attr("src",src)
+    image.attr("src","file"+src)
 
   get_next_image = (current_image)=>
     $.get "/next", {current_image}, set_image_url, "json"

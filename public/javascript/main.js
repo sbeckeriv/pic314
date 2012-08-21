@@ -9,7 +9,7 @@
     window.pause = false;
     window.menu_interval;
     window.settings = {
-      interval_time: 2000
+      interval_time: 10000
     };
     image_box = $("#image_box");
     current_image = $("#current_image");
@@ -43,11 +43,11 @@
         img.appendTo(current_image);
         image = current_image.find("img");
       }
-      src = "file" + response.file;
+      src = response.file;
       if (skip !== true) {
         window.image_queue.unshift(src);
       }
-      return image.attr("src", src);
+      return image.attr("src", "file" + src);
     };
     get_next_image = function(current_image) {
       return $.get("/next", {
