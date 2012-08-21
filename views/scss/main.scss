@@ -4,4 +4,22 @@
   margin-right: auto;
 }
 .menu{
+  position: absolute;
+  z-index: 10;
+}
+#next_control{
+  right: 0px;
+  top: 50%;
+}
+#prev_control{
+  top: 50%;
+}
+#settings{
+  padding-left: 10px;
+}
+.navbar{
+  width: 100%;
+}
+body{
+  padding: 0px;
 }
