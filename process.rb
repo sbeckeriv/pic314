@@ -50,7 +50,6 @@ class Mail::Part
     file = read
     digest = Digest::MD5.hexdigest(file)
     file_name = File.join(path,digest)
-    pp file_name
     type = file_type(sub_type)
     File.open("#{file_name}.#{type}", 'w') { |f| f << file}
   end
