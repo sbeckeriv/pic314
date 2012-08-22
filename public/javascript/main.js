@@ -1,7 +1,7 @@
 (function() {
 
   $(function() {
-    var clean_queue, create_image_rotate, current_image, footer, get_next_image, get_next_image_with_current, image_box, set_image_url, top_nave,
+    var clean_queue, clear_deg, create_image_rotate, current_image, footer, get_current_deg, get_next_image, get_next_image_with_current, image_box, rotate_image, set_deg, set_image_url, top_nave,
       _this = this;
     window.image_queue = [];
     window.image_queue_playback = [];
@@ -9,12 +9,33 @@
     window.pause = false;
     window.menu_interval;
     window.settings = {
-      interval_time: 10000
+      interval_time: 15000
     };
     image_box = $("#image_box");
     current_image = $("#current_image");
     top_nave = $("#top_nav");
     footer = $("#footer");
+    get_current_deg = function() {
+      var classes;
+      current_image = $("img.current_image");
+      classes = current_image.attr("class");
+      if (classes.indexOf("deg_90") !== -1) {
+        return 90;
+      }
+      if (classes.indexOf("deg_180") !== -1) {
+        return 180;
+      }
+      if (classes.indexOf("deg_270") !== -1) {
+        return 270;
+      }
+      return 0;
+    };
+    clear_deg = function() {
+      var classes;
+      current_image = $("img.current_image");
+      classes = current_image.attr("class");
+      return current_image.attr("class", classes.replace("deg_90", "").replace("deg_180", "").replace("deg_270", ""));
+    };
     $("body").mousemove(function() {
       if (window.menu_interval) {
         clearTimeout(window.menu_interval);
@@ -44,8 +65,12 @@
         image = current_image.find("img");
       }
       src = response.file;
+      clear_deg();
       if (skip !== true) {
         window.image_queue.unshift(src);
+      }
+      if (response.rotate != null) {
+        image.attr("class", image.attr("class") + " deg_" + response.rotate);
       }
       return image.attr("src", "file" + src);
     };
@@ -77,6 +102,24 @@
       return _results;
     };
     setInterval(clean_queue, window.settings.interval_time * 6);
+    $("#rotate_left").on("click", function() {
+      return rotate_image(-90);
+    });
+    $("#rotate_right").on("click", function() {
+      return rotate_image(90);
+    });
+    rotate_image = function(deg) {
+      var current_deg;
+      current_deg = get_current_deg();
+      clear_deg();
+      return set_deg((current_deg + deg + 360) % 360);
+    };
+    set_deg = function(deg) {
+      var classes;
+      current_image = $("img.current_image");
+      classes = current_image.attr("class");
+      return current_image.attr("class", classes + " deg_" + deg);
+    };
     $("#next_control").on("click", function() {
       return get_next_image_with_current();
     });

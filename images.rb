@@ -16,7 +16,8 @@ require 'lib/random_array.rb'
 include Rack::Utils
 
 set :scss, :style => :compressed
-set :image_dir , File.join("","tmp","photos")
+
+set :image_dir , File.join("/Users/becker/Desktop/kodak")
 set :haml, :format => :html5
 
 helpers do

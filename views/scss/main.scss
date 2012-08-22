@@ -7,6 +7,16 @@
   position: absolute;
   z-index: 10;
 }
+
+#rotate_left{
+  bottom: 0px;
+  left: 45%;
+}
+#rotate_right{
+  bottom: 0px;
+  right: 45%;
+}
+
 #next_control{
   right: 0px;
   top: 50%;
@@ -22,4 +32,25 @@
 }
 body{
   padding: 0px;
+}
+
+.deg_90{
+ -moz-transform: rotate(90deg);
+ -webkit-transform: rotate(90deg);
+ -o-transform: rotate(90deg);
+ transform: rotate(90deg);
+}
+
+.deg_180{
+ -moz-transform: rotate(180deg);
+ -webkit-transform: rotate(180deg);
+ -o-transform: rotate(180deg);
+ transform: rotate(180deg);
+}
+
+.deg_270{
+ -moz-transform: rotate(270deg);
+ -webkit-transform: rotate(270deg);
+ -o-transform: rotate(270deg);
+ transform: rotate(270deg);
 }

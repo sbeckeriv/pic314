@@ -9,6 +9,17 @@ $ ->
   current_image = $("#current_image")
   top_nave = $("#top_nav")
   footer = $("#footer")
+  get_current_deg = () =>
+    current_image = $("img.current_image")
+    classes = current_image.attr("class")
+    return 90 if classes.indexOf("deg_90")!=-1
+    return 180 if classes.indexOf("deg_180")!=-1
+    return 270 if classes.indexOf("deg_270")!=-1
+    return 0
+  clear_deg = () =>
+    current_image = $("img.current_image")
+    classes = current_image.attr("class")
+    current_image.attr("class",classes.replace("deg_90","").replace("deg_180","").replace("deg_270",""))
   $("body").mousemove(() => 
     clearTimeout(window.menu_interval) if window.menu_interval
     $(".menu").show()
@@ -18,7 +29,7 @@ $ ->
       $(".menu").hide()
     , 10000)
   )
-
+  
   set_image_url = (response,skip)=>
     return null unless response.file
     current_image = $("#current_image")
@@ -31,7 +42,9 @@ $ ->
       img.appendTo(current_image)
       image = current_image.find("img")
     src = response.file
+    clear_deg()
     window.image_queue.unshift(src) unless skip==true
+    image.attr("class", image.attr("class")+" deg_"+response.rotate) if response.rotate?
     image.attr("src","file"+src)
 
   get_next_image = (current_image)=>
@@ -50,6 +63,22 @@ $ ->
       window.image_queue.pop()
   setInterval(clean_queue,window.settings.interval_time*6)
 
+  $("#rotate_left").on("click", ()=>
+    rotate_image(-90)
+  )
+  $("#rotate_right").on("click", ()=>
+    rotate_image(90)
+  )
+  
+  rotate_image = (deg)=>
+    current_deg = get_current_deg()
+    clear_deg()
+    set_deg((current_deg+deg+360)%360)
+
+  set_deg = (deg)=>
+    current_image = $("img.current_image")
+    classes = current_image.attr("class")
+    current_image.attr("class", classes+" deg_"+deg)
   $("#next_control").on("click",()=>
     get_next_image_with_current()
   )

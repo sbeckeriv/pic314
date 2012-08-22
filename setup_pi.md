@@ -2,7 +2,7 @@ get 1 raspberry pi
 
 run commands 
 
-sudo apt-get install -y  ruby1.9.3 ruby1.9.1-dev rubygems  git-core firmware-ralink screen tightvncserver
+sudo apt-get install -y  ruby1.9.3 ruby1.9.1-dev rubygems  git-core firmware-ralink screen tightvncserver ruby-sqlite3 sqlite3
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -21,6 +21,7 @@ sudo ./install-rtl8188cus-latest.sh
 
 
 sudo gem install  --no-rdoc --no-ri haml -v3.1.6
+sudo gem install  --no-rdoc --no-ri dm-sqlite-adapter 
 sudo gem install  --no-rdoc --no-ri json -v1.7.3
 sudo gem install  --no-rdoc --no-ri mail -v2.4.4
 sudo gem install  --no-rdoc --no-ri mime
