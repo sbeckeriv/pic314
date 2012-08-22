@@ -17,7 +17,7 @@ include Rack::Utils
 
 set :scss, :style => :compressed
 
-set :image_dir , File.join(File.expand("~",),"photos")
+set :image_dir , File.join(File.expand_path("~",),"photos")
 set :haml, :format => :html5
 
 helpers do
