@@ -11,7 +11,7 @@ unless ARGV[0] && ARGV[1]
 end
 
 username = ARGV[0]
-photo_path = File.join("","tmp","photos",username.gsub(/[^a-zA-Z0-9_\.\@]/, '_'))
+photo_path = File.join(File.expand_path("~"),"photos",username.gsub(/[^a-zA-Z0-9_\.\@]/, '_'))
 FileUtils.mkdir_p(photo_path)
 pass = ARGV[1]
 filter = ARGV[2] ? ARGV[2].to_sym : :unread
