@@ -2,7 +2,7 @@ get 1 raspberry pi
 
 run commands 
 
-sudo apt-get install -y  ruby1.9.3 ruby1.9.1-dev rubygems  git-core firmware-ralink screen tightvncserver ruby-sqlite3 sqlite3
+sudo apt-get install -y  ruby1.9.3 ruby1.9.1-dev rubygems  git-core firmware-ralink screen tightvncserver ruby-sqlite3 sqlite3 module-assistant
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -48,3 +48,12 @@ sudo dpkg-reconfigure dash
 sudo sed -i '/[2-6]:23:respawn:\/sbin\/getty 38400 tty[2-6]/s%^%#%g' /etc/inittab
 sudo sed -i 's/sortstrategy = 3/sortstrategy = 0/g'  /etc/preload.conf
 sudo sed -i 's/vm.swappiness=1/vm.swappiness=10/g'  /etc/sysctl.conf
+
+
+#thanks to andy
+vi /etc/rc.local 
+insmod /lib/modules/3.2.27-cutdown+/kernel/drivers/input/misc/uinput.ko
+
+after it was found via find |grep uinput
+
+http://210.64.17.162/web20/eGalaxTouchDriver/linuxDriver.htm
