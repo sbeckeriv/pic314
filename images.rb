@@ -2,9 +2,9 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require "sinatra"
 require "pp"
 begin
-require "v8"
-require "coffee-script"
-COFFEESCRIPT = true
+  require "v8"
+  require "coffee-script"
+  COFFEESCRIPT = true
 rescue Exception
   COFFEESCRIPT=false
 end
@@ -29,7 +29,7 @@ before do
 end
 
 get '/css/:filename' do
-    scss :"/scss/#{params["filename"].to_s.split(".css").first}"
+  scss :"/scss/#{params["filename"].to_s.split(".css").first}"
 end
 
 get '/' do
@@ -57,13 +57,25 @@ def build_coffee_script
   current_root  = File.expand_path(File.dirname(__FILE__))
   source = File.join(current_root,"coffee")
   javascripts = File.join(current_root,"public","javascript")
+  concated_file = ""
   Dir.foreach(source) do |cf|
-    if cf.match(/.+\.coffee/)
-      js = CoffeeScript.compile File.read(File.join(source,cf))
-      open File.join(javascripts,cf.gsub('.coffee', '.js')), 'w' do |f|
-        f.puts js
+    if cf.match(/.+\.coffee\z/)
+      begin
+        js = CoffeeScript.compile File.read(File.join(source,cf))
+        open File.join(javascripts,cf.gsub('.coffee', '.js')), 'w' do |f|
+          concated_file+= "\n\n//#{cf}\n#{js}"
+          f.puts js
+        end
+      rescue => e
+        puts cf
+        puts e.message
+        raise e
       end
     end
+  end
+
+  open File.join(javascripts,"application.js"), 'w' do |f|
+    f.puts concated_file
   end
 end
 

@@ -3,32 +3,43 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .menu{
   position: absolute;
   z-index: 10;
 }
-
+#image_box{
+  width: 100%
+}
 #rotate_left{
   bottom: 0px;
-  left: 45%;
+  left: 40%;
 }
 #rotate_right{
   bottom: 0px;
-  right: 45%;
+  right: 40%;
 }
 
 #next_control{
   right: 0px;
   top: 50%;
 }
+
 #prev_control{
   top: 50%;
 }
+
 #settings{
   padding-left: 10px;
 }
 .navbar{
   width: 100%;
+  .navbar-inner {
+    width: 90%;
+  }
+  .navbar-toggle {
+    width: 5%;
+  }
 }
 body{
   padding: 0px;

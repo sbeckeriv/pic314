@@ -1,0 +1,65 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.3)
+    execjs (2.0.2)
+    haml (4.0.3)
+      tilt
+    i18n (0.6.5)
+    json (1.8.1)
+    libv8 (3.16.14.3)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime (0.1)
+    mime-types (1.25)
+    multi_json (1.8.2)
+    polyglot (0.3.3)
+    rack (1.5.2)
+    rack-protection (1.5.1)
+      rack
+    ref (1.0.5)
+    ruby-gmail (0.3.0)
+      mail (>= 2.2.1)
+      mime (>= 0.1)
+      shared-mime-info
+    sass (3.2.12)
+    shared-mime-info (0.2.5)
+    sinatra (1.4.4)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
+    tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  coffee-script
+  execjs
+  haml
+  i18n
+  json
+  libv8
+  mail
+  mime
+  mime-types
+  multi_json
+  polyglot
+  rack
+  rack-protection
+  ruby-gmail
+  sass
+  shared-mime-info
+  sinatra
+  therubyracer
+  tilt

@@ -3,12 +3,16 @@
   %head
     %title= @title||"Images"
     %script(type="text/javascript" src="javascript/jquery-1.8.0.min.js")
+    %script(type="text/javascript" src="javascript/image_resize.js")
     %script(type="text/javascript" src="bootstrap/js/bootstrap.min.js")
-    %script(type="text/javascript" src="javascript/main.js")
+    %script(type="text/javascript" src="javascript/application.js")
     %link(rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css")
     %link(rel="stylesheet" type="text/css" href="css/main.css")
   %body
-    .menu.navbar
+    .top-menu.navbar
+      .navbar-toggle
+        %ul.nav
+          %li#settings.icon-cog.icon-white
       .navbar-inner
         .container
           %ul.nav
